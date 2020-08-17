@@ -61,6 +61,48 @@ Polynomial::~Polynomial()
 }
 
 /*
+* This function is an accessor for the degree of the Polynomial. It returns the degree field.
+*
+*/
+int Polynomial::getDegree() const
+{
+	// Return the degree of this Polynomial.
+	return this->degree;
+}
+
+/*
+* This function sets the degree of the Polynomial when the power of the coefficient is too high.
+*
+*/
+void Polynomial::setDegree(const int index)
+{
+	// Make a new array with the length that of the new degree plus 1.
+	ipointer coefficients = new int[index + 1];
+
+	// Copy the original array to the new one.
+	for (int i = 0; i <= this->degree; i++)
+	{
+		// Set the element here to the one in the current array.
+		coefficients[i] = this->coefficients[i];
+	}
+
+	// Set any new terms to zero.
+	for (int i = this->degree + 1; i <= index; i++)
+	{
+		coefficients[i] = 0;
+	}
+
+	// Delete the old array.
+	delete[] this->coefficients;
+
+	// Set the degree to the index that is too high for the current Polynomial.
+	this->degree = index;
+
+	// Set the coefficients to the newly-sized array.
+	this->coefficients = coefficients;
+}
+
+/*
 * This function returns a Polynomial as a string.
 *
 */
