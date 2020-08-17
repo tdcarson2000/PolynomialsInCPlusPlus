@@ -342,3 +342,73 @@ Polynomial& operator + (const int& addConstant, const Polynomial & addPolynomial
 	// Add the numbers as Polynomials.
 	return addPolynomial + *constant;
 }
+
+/*
+* Overloaded subtraction operator that subtracts two polynomials by subtracting the coefficients at each term.
+*
+*/
+Polynomial& Polynomial::operator - (const Polynomial& subPolynomial) const
+{
+	// Declare a new Polynomial to be returned.
+	Polynomial* difference = new Polynomial();
+
+	// Figure out which Polynomial is larger.
+	if (this->degree >= subPolynomial.degree)
+	{
+		// Set the degree to that of the left Polynomial.
+		difference->setDegree(this->degree);
+	}
+	else
+	{
+		// Set the degree to that of the right Polynomial.
+		difference->setDegree(subPolynomial.degree);
+	}
+
+	// Set the value at each index to that of the sum of each Polynomial's coefficients at that index until the end.
+	for (int i = 0; i <= difference->degree; i++)
+	{
+		// Add the values and set the coefficient to that.
+		difference->setCoefficient(i, this->getCoefficientAt(i) - subPolynomial.getCoefficientAt(i));
+	}
+
+	// Return the new Polynomial.
+	return *difference;
+}
+
+/*
+* Overloaded subtraction operator that subtracts an integer as a constant from a Polynomial.
+*
+*/
+Polynomial& Polynomial::operator - (const int& subConstant) const
+{
+	// Create an array containing the integer to construct a Polynomial.
+	ipointer constantCoefficient = new int[1];
+
+	// Set the array's one indexed variable to the constant.
+	constantCoefficient[0] = subConstant;
+
+	// Create a Polynomial of degree 0 that is just the integer using the array.
+	Polynomial* constant = new Polynomial(constantCoefficient, 0);
+
+	// Subtract the numbers as Polynomials.
+	return *this - *constant;
+}
+
+/*
+* Overloaded subtraction operator that subtracts Polynomials from a constant when order is swapped.
+*
+*/
+Polynomial& operator - (const int& subConstant, const Polynomial & subPolynomial)
+{
+	// Create an array containing the integer to construct a Polynomial.
+	ipointer constantCoefficient = new int[1];
+
+	// Set the array's one indexed variable to the constant.
+	constantCoefficient[0] = subConstant;
+
+	// Create a Polynomial of degree 0 that is just the integer using the array.
+	Polynomial* constant = new Polynomial(constantCoefficient, 0);
+
+	// Subtract the numbers as Polynomials.
+	return *constant - subPolynomial;
+}

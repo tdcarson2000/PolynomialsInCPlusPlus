@@ -64,9 +64,16 @@ int main()
 	cout << "Evaluation at x = " + to_string(randomInteger) + ": " << to_string(first.evaluateAt(randomInteger)) << "\n";
 
 	// Test addition operation on Polynomials.
+	cout << "\nADDITION\n";
 	cout << "Two polynomials:" << (first + second).toString() << "\n";
 	cout << "Left polynomial:" << (first + randomInteger).toString() << "\n";
 	cout << "Right polynomial:" << (randomInteger + second).toString() << "\n";
+
+	// Test subtraction operation on Polynomials
+	cout << "\nSUBTRACTION\n";
+	cout << "Two polynomials:" << (first - second).toString() << "\n";
+	cout << "Left polynomial:" << (first - randomInteger).toString() << "\n";
+	cout << "Right polynomial:" << (randomInteger - second).toString() << "\n";
 
 	return 0;
 }
