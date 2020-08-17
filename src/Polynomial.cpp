@@ -272,3 +272,73 @@ Polynomial& Polynomial::operator = (const Polynomial& assignmentPolynomial)
 	// Return the value on the lefthand side.
 	return *this;
 }
+
+/*
+* Overloaded addition operator that adds two Polynomials by adding the coefficients of each term.
+*
+*/
+Polynomial& Polynomial::operator + (const Polynomial& addPolynomial) const
+{
+	// Declare a new Polynomial to be returned.
+	Polynomial* sum = new Polynomial();
+
+	// Figure out which Polynomial is larger.
+	if (this->degree >= addPolynomial.degree)
+	{
+		// Set the degree to that of the left Polynomial.
+		sum->setDegree(this->degree);
+	}
+	else
+	{
+		// Set the degree to that of the right Polynomial.
+		sum->setDegree(addPolynomial.degree);
+	}
+
+	// Set the value at each index to that of the sum of each Polynomial's coefficients at that index until the end.
+	for (int i = 0; i <= sum->degree; i++)
+	{
+		// Add the values and set the coefficient to that.
+		sum->setCoefficient(i, this->getCoefficientAt(i) + addPolynomial.getCoefficientAt(i));
+	}
+
+	// Return the new Polynomial.
+	return *sum;
+}
+
+/*
+* Overloaded addition operator that adds an integer as a constant to a Polynomial.
+*
+*/
+Polynomial& Polynomial::operator + (const int& addConstant) const
+{
+	// Create an array containing the integer to construct a Polynomial.
+	ipointer constantCoefficient = new int[1];
+
+	// Set the array's one indexed variable to the constant.
+	constantCoefficient[0] = addConstant;
+
+	// Create a Polynomial of degree 0 that is just the integer using the array.
+	Polynomial* constant = new Polynomial(constantCoefficient, 0);
+
+	// Add the numbers as Polynomials.
+	return *this + *constant;
+}
+
+/*
+* Overloaded addition operator that adds Polynomials to a constant when order is swapped.
+*
+*/
+Polynomial& operator + (const int& addConstant, const Polynomial & addPolynomial)
+{
+	// Create an array containing the integer to construct a Polynomial.
+	ipointer constantCoefficient = new int[1];
+
+	// Set the array's one indexed variable to the constant.
+	constantCoefficient[0] = addConstant;
+
+	// Create a Polynomial of degree 0 that is just the integer using the array.
+	Polynomial* constant = new Polynomial(constantCoefficient, 0);
+
+	// Add the numbers as Polynomials.
+	return addPolynomial + *constant;
+}
