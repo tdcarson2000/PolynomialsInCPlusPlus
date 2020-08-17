@@ -132,3 +132,29 @@ const string Polynomial::toString() const
 	// Return the string.
 	return polynomialString;
 }
+
+/*
+* Overloaded assignment operator for the Polynomial that creates a copy of a Polynomial.
+*
+*/
+Polynomial& Polynomial::operator = (const Polynomial& assignmentPolynomial)
+{
+	// Check whether the Polynomials have the same degree.
+	if (assignmentPolynomial.degree != this->degree)
+	{
+		// Delete the coefficient array and make a new one of the righthand degree.
+		delete[] this->coefficients;
+		this->coefficients = new int[assignmentPolynomial.degree + 1];
+	}
+
+	// Set each field to be the same.
+	this->degree = assignmentPolynomial.degree;
+	for (int i = 0; i <= this->degree; i++)
+	{
+		// Set the coefficient at this index to be the same.
+		this->coefficients[i] = assignmentPolynomial.coefficients[i];
+	}
+
+	// Return the value on the lefthand side.
+	return *this;
+}
