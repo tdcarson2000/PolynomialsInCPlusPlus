@@ -103,6 +103,57 @@ void Polynomial::setDegree(const int index)
 }
 
 /*
+* This function acts as an accessor for a coefficient in the Polynomial.
+*
+*/
+int Polynomial::getCoefficientAt(const int index) const
+{
+	// Check that the passed index is in the array.
+	if (index <= this->degree && index >= 0)
+	{
+		// Return the value of the coefficient of this degree.
+		return this->coefficients[index];
+	}
+	else
+	{
+		// Return 0 since the coefficient of such a term past the defined array is 0.
+		return 0;
+	}
+}
+
+/*
+* This function takes an index and a coefficient to set the coefficient at that degree to
+* a new one.
+*
+*/
+void Polynomial::setCoefficient(const int index, const int coefficient)
+{
+	// Check if the degree is within the current bounds.
+	if (index <= this->degree && index >= 0)
+	{
+		// Set the coefficient to the new value.
+		this->coefficients[index] = coefficient;
+	}
+	else
+	{
+		// The coefficient is out of bounds, so check in which way it is out of bounds.
+		if (index > degree)
+		{
+			// Set the degree to the higher value that was chosen.
+			this->setDegree(index);
+
+			// Fill the array with this coefficient.
+			this->coefficients[index] = coefficient;
+		}
+		else
+		{
+			// The Polynomial class does not apply for Polynomials with terms of negative powers.
+			return;
+		}
+	}
+}
+
+/*
 * This function returns a Polynomial as a string.
 *
 */
