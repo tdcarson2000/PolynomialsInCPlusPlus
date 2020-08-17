@@ -59,3 +59,76 @@ Polynomial::~Polynomial()
 	// Get rid of the dynamically allocated array.
 	delete[] this->coefficients;
 }
+
+/*
+* This function returns a Polynomial as a string.
+*
+*/
+const string Polynomial::toString() const
+{
+	// Declare a string to hold the Polynomial in string form.
+	string polynomialString = "";
+
+	// Find the first non-zero term. Set the index to negative one of there is none to end the toString 
+	// process.
+	int positionOfFirstValue = -1;
+
+	for (int i = this->degree; i >= 0; i--)
+	{
+		if (this->coefficients[i] != 0)
+		{
+			positionOfFirstValue = i;
+			break;
+		}
+	}
+
+	// Loop through the Polynomial and add each term and coefficient to it with the correct power.
+	for (int i = positionOfFirstValue; i >= 0; i--)
+	{
+		// Declare a string for this term.
+		string term = "";
+
+		// Check if the current term is 0.
+		if (this->coefficients[i] != 0)
+		{
+			// Check if the current term is positive, negative, or zero. Add a sign based
+			// on this.
+			if (this->coefficients[i] > 0 && i < positionOfFirstValue)
+			{
+				term += " + ";
+			}
+			else if (this->coefficients[i] < 0)
+			{
+				term += " - ";
+			}
+
+			// Add the coefficient's value if it is not one.
+			if (abs(this->coefficients[i]) != 1 || i == 0)
+			{
+				term += to_string(abs(this->coefficients[i]));
+			}
+
+			// Check if it is the constant term.
+			if (i > 0)
+			{
+				// Check if it is the power of 1.
+				if (i == 1)
+				{
+					// Concatenate the variable.
+					term += "x";
+				}
+				else
+				{
+					// Concatenate the variable and power.
+					term += "x^" + to_string(i);
+				}
+			} // Do nothing if it is the constant term.
+		} // Do nothing if the coefficient is 0.
+
+		  // Add the term to the polynomial string.
+		polynomialString += term;
+	}
+
+	// Return the string.
+	return polynomialString;
+}
