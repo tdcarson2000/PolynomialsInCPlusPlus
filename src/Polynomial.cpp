@@ -49,3 +49,13 @@ Polynomial::Polynomial(const Polynomial& clone)
 		this->coefficients[i] = clone.coefficients[i];
 	}
 }
+
+/*
+* This function is the destructor for the Polynomial class. It deallocates space for the dynamic array.
+*
+*/
+Polynomial::~Polynomial()
+{
+	// Get rid of the dynamically allocated array.
+	delete[] this->coefficients;
+}
