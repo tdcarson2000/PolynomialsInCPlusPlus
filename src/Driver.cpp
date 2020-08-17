@@ -29,6 +29,10 @@ int main()
 	// Delete the array.
 	delete[] coef;
 
+	// Create a random constant and make its value known.
+	int randomInteger = randomValueOnInterval(1, 10) * ((rand() > RAND_MAX / 2) ? 1 : -1);
+	cout << "Constant: " << to_string(randomInteger) + "\n";
+
 	// Test toString and the constructor.
 	cout << "As a string: " << polynomial.toString() + "\n";
 
@@ -40,6 +44,9 @@ int main()
 	{
 		cout << "Coefficient " + to_string(degree - change) + ": " << to_string(polynomial.getCoefficientAt(degree - change)) + "\n";
 	}
+
+	// Test the evaluation operation.
+	cout << "Evaluation at x = " + to_string(randomInteger) + ": " << to_string(polynomial.evaluateAt(randomInteger)) << "\n";
 
 	return 0;
 }
