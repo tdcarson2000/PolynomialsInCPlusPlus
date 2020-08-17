@@ -13,11 +13,11 @@ using namespace std;
 typedef int* ipointer;
 
 /*
-* This class encapsulates the idea of a Polynomial. It contains functions for getting the exponent on the largest
-* term, getting each coefficient, setting each coefficient, and overloaded operators for addition, subtraction,
-* multiplication, and assignment of pPolynomials.
-*
-*/
+ * This class encapsulates the idea of a Polynomial. It contains functions for getting the exponent on the largest
+ * term, getting each coefficient, setting each coefficient, and overloaded operators for addition, subtraction,
+ * multiplication, and assignment of pPolynomials.
+ *
+ */
 class Polynomial
 {
 	// The degree of the Polynomial.

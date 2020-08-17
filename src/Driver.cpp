@@ -21,7 +21,10 @@ int main()
 	// Choose small random coefficient values.
 	for (int i = 0; i <= firstDegree; i++)
 	{
-		coef[i] = (int)randomValueOnInterval(-10, 10);
+		// Make sure the highest degree term is not zero since that would 
+		// make it a lower degree technically.
+		int x = (int)randomValueOnInterval(-10, 10);
+		coef[i] = (x != 0 || i != firstDegree) ? x : 1;
 	}
 
 	// Create the polynomial.
@@ -37,7 +40,10 @@ int main()
 	// Choose small random coefficient values.
 	for (int i = 0; i <= degree; i++)
 	{
-		coef[i] = randomValueOnInterval(-10, 10);
+		// Make sure the highest degree term is not zero since that would 
+		// make it a lower degree technically.
+		int x = (int)randomValueOnInterval(-10, 10);
+		coef[i] = (x != 0 || i != degree) ? x : 1;
 	}
 
 	// Create the polynomial.
@@ -71,6 +77,12 @@ int main()
 
 	// Test subtraction operation on Polynomials
 	cout << "\nSUBTRACTION\n";
+	cout << "Two polynomials:" << (first - second).toString() << "\n";
+	cout << "Left polynomial:" << (first - randomInteger).toString() << "\n";
+	cout << "Right polynomial:" << (randomInteger - second).toString() << "\n";
+
+	// Test multiplication operation on Polynomials
+	cout << "\nMULTIPLICATION\n";
 	cout << "Two polynomials:" << (first - second).toString() << "\n";
 	cout << "Left polynomial:" << (first - randomInteger).toString() << "\n";
 	cout << "Right polynomial:" << (randomInteger - second).toString() << "\n";

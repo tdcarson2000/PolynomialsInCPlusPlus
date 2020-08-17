@@ -1,9 +1,9 @@
 #include "Polynomial.h"
 
 /*
-* This function is the default constructor for the Polynomial class. It makes a Polynomial with no coefficients.
-*
-*/
+ * This function is the default constructor for the Polynomial class. It makes a Polynomial with no coefficients.
+ *
+ */
 Polynomial::Polynomial()
 {
 	// Create a Polynomial of degree 0.
@@ -12,9 +12,9 @@ Polynomial::Polynomial()
 }
 
 /*
-* This function is a constructor for the Polynomial class that takes an array to initialize a Polynomial.
-*
-*/
+ * This function is a constructor for the Polynomial class that takes an array to initialize a Polynomial.
+ *
+ */
 Polynomial::Polynomial(const ipointer coefficients, const int degree)
 {
 	// Set the degree to the passed array's degree.
@@ -32,10 +32,10 @@ Polynomial::Polynomial(const ipointer coefficients, const int degree)
 }
 
 /*
-* This function is the copy constructor for the Polynomial. It sets the Polynomial to be the same degree and
-* copies the contents of one array of coefficients into the other.
-*
-*/
+ * This function is the copy constructor for the Polynomial. It sets the Polynomial to be the same degree and
+ * copies the contents of one array of coefficients into the other.
+ *
+ */
 Polynomial::Polynomial(const Polynomial& clone)
 {
 	// Set the degree of this Polynomial to that of the other and create a new array of that degree plus 1.
@@ -51,9 +51,9 @@ Polynomial::Polynomial(const Polynomial& clone)
 }
 
 /*
-* This function is the destructor for the Polynomial class. It deallocates space for the dynamic array.
-*
-*/
+ * This function is the destructor for the Polynomial class. It deallocates space for the dynamic array.
+ *
+ */
 Polynomial::~Polynomial()
 {
 	// Get rid of the dynamically allocated array.
@@ -61,9 +61,9 @@ Polynomial::~Polynomial()
 }
 
 /*
-* This function is an accessor for the degree of the Polynomial. It returns the degree field.
-*
-*/
+ * This function is an accessor for the degree of the Polynomial. It returns the degree field.
+ *
+ */
 int Polynomial::getDegree() const
 {
 	// Return the degree of this Polynomial.
@@ -71,9 +71,9 @@ int Polynomial::getDegree() const
 }
 
 /*
-* This function sets the degree of the Polynomial when the power of the coefficient is too high.
-*
-*/
+ * This function sets the degree of the Polynomial when the power of the coefficient is too high.
+ *
+ */
 void Polynomial::setDegree(const int index)
 {
 	// Make a new array with the length that of the new degree plus 1.
@@ -103,9 +103,9 @@ void Polynomial::setDegree(const int index)
 }
 
 /*
-* This function acts as an accessor for a coefficient in the Polynomial.
-*
-*/
+ * This function acts as an accessor for a coefficient in the Polynomial.
+ *
+ */
 int Polynomial::getCoefficientAt(const int index) const
 {
 	// Check that the passed index is in the array.
@@ -122,10 +122,10 @@ int Polynomial::getCoefficientAt(const int index) const
 }
 
 /*
-* This function takes an index and a coefficient to set the coefficient at that degree to
-* a new one.
-*
-*/
+ * This function takes an index and a coefficient to set the coefficient at that degree to
+ * a new one.
+ *
+ */
 void Polynomial::setCoefficient(const int index, const int coefficient)
 {
 	// Check if the degree is within the current bounds.
@@ -154,9 +154,9 @@ void Polynomial::setCoefficient(const int index, const int coefficient)
 }
 
 /*
-* This function evaluates the Polynomial given a value for the variable.
-*
-*/
+ * This function evaluates the Polynomial given a value for the variable.
+ *
+ */
 double Polynomial::evaluateAt(const double xValue) const
 {
 	// Define a double for the value.
@@ -175,9 +175,9 @@ double Polynomial::evaluateAt(const double xValue) const
 }
 
 /*
-* This function returns a Polynomial as a string.
-*
-*/
+ * This function returns a Polynomial as a string.
+ *
+ */
 const string Polynomial::toString() const
 {
 	// Declare a string to hold the Polynomial in string form.
@@ -248,9 +248,9 @@ const string Polynomial::toString() const
 }
 
 /*
-* Overloaded assignment operator for the Polynomial that creates a copy of a Polynomial.
-*
-*/
+ * Overloaded assignment operator for the Polynomial that creates a copy of a Polynomial.
+ *
+ */
 Polynomial& Polynomial::operator = (const Polynomial& assignmentPolynomial)
 {
 	// Check whether the Polynomials have the same degree.
@@ -274,9 +274,9 @@ Polynomial& Polynomial::operator = (const Polynomial& assignmentPolynomial)
 }
 
 /*
-* Overloaded addition operator that adds two Polynomials by adding the coefficients of each term.
-*
-*/
+ * Overloaded addition operator that adds two Polynomials by adding the coefficients of each term.
+ *
+ */
 Polynomial& Polynomial::operator + (const Polynomial& addPolynomial) const
 {
 	// Declare a new Polynomial to be returned.
@@ -306,9 +306,9 @@ Polynomial& Polynomial::operator + (const Polynomial& addPolynomial) const
 }
 
 /*
-* Overloaded addition operator that adds an integer as a constant to a Polynomial.
-*
-*/
+ * Overloaded addition operator that adds an integer as a constant to a Polynomial.
+ *
+ */
 Polynomial& Polynomial::operator + (const int& addConstant) const
 {
 	// Create an array containing the integer to construct a Polynomial.
@@ -325,9 +325,9 @@ Polynomial& Polynomial::operator + (const int& addConstant) const
 }
 
 /*
-* Overloaded addition operator that adds Polynomials to a constant when order is swapped.
-*
-*/
+ * Overloaded addition operator that adds Polynomials to a constant when order is swapped.
+ *
+ */
 Polynomial& operator + (const int& addConstant, const Polynomial & addPolynomial)
 {
 	// Create an array containing the integer to construct a Polynomial.
@@ -344,9 +344,9 @@ Polynomial& operator + (const int& addConstant, const Polynomial & addPolynomial
 }
 
 /*
-* Overloaded subtraction operator that subtracts two polynomials by subtracting the coefficients at each term.
-*
-*/
+ * Overloaded subtraction operator that subtracts two polynomials by subtracting the coefficients at each term.
+ *
+ */
 Polynomial& Polynomial::operator - (const Polynomial& subPolynomial) const
 {
 	// Declare a new Polynomial to be returned.
@@ -376,9 +376,9 @@ Polynomial& Polynomial::operator - (const Polynomial& subPolynomial) const
 }
 
 /*
-* Overloaded subtraction operator that subtracts an integer as a constant from a Polynomial.
-*
-*/
+ * Overloaded subtraction operator that subtracts an integer as a constant from a Polynomial.
+ *
+ */
 Polynomial& Polynomial::operator - (const int& subConstant) const
 {
 	// Create an array containing the integer to construct a Polynomial.
@@ -395,9 +395,9 @@ Polynomial& Polynomial::operator - (const int& subConstant) const
 }
 
 /*
-* Overloaded subtraction operator that subtracts Polynomials from a constant when order is swapped.
-*
-*/
+ * Overloaded subtraction operator that subtracts Polynomials from a constant when order is swapped.
+ *
+ */
 Polynomial& operator - (const int& subConstant, const Polynomial & subPolynomial)
 {
 	// Create an array containing the integer to construct a Polynomial.
@@ -411,4 +411,83 @@ Polynomial& operator - (const int& subConstant, const Polynomial & subPolynomial
 
 	// Subtract the numbers as Polynomials.
 	return *constant - subPolynomial;
+}
+
+/*
+ * Overloaded multiplication operator that multiplies two Polynomials by multiplying each term that
+ * have combined degrees equal to the current degree and adding each pair for each term in the result.
+ *
+ */
+Polynomial& Polynomial::operator * (const Polynomial& multPolynomial) const
+{
+	// Declare a new Polynomial to be returned.
+	Polynomial* product = new Polynomial();
+
+	// Set the degree of the Polynomial to be the sum of the degrees.
+	product->setDegree(this->degree + multPolynomial.degree);
+
+	// Loop through each pair of coefficients that result in a power equivalent to the index and add all of them to
+	// a sum. Then, set the coefficient to this sum.
+	for (int currentTerm = 0; currentTerm <= this->degree + multPolynomial.degree; currentTerm++)
+	{
+		// Declare a sum of each product.
+		int sum = 0;
+
+		// Multiply each corresponding term in each polynomial whose degrees add to the current term and add them to 
+		// the sum. 
+		for (int thisIndex = 0; thisIndex <= this->degree; thisIndex++)
+		{
+			for (int multIndex = 0; multIndex <= multPolynomial.degree; multIndex++)
+			{
+				if (thisIndex + multIndex == currentTerm)
+				{
+					sum += this->coefficients[thisIndex] * multPolynomial.coefficients[multIndex];
+				}
+			}
+		}
+
+		// Set the value of the Polynomial at this index to the sum of the products.
+		product->setCoefficient(currentTerm, sum);
+	}
+
+	// Return the new Polynomial.
+	return *product;
+}
+
+/*
+ * Overloaded multiplication operator that multiplies an integer as a constant to a Polynomial.
+ *
+ */
+Polynomial& Polynomial::operator * (const int& multConstant) const
+{
+	// Create an array containing the integer to construct a Polynomial.
+	ipointer constantCoefficient = new int[1];
+
+	// Set the array's one indexed variable to the constant.
+	constantCoefficient[0] = multConstant;
+
+	// Create a Polynomial of degree 0 that is just the integer using the array.
+	Polynomial* constant = new Polynomial(constantCoefficient, 0);
+
+	// Subtract the numbers as Polynomials.
+	return *this** constant;
+}
+
+/*
+ * Overloaded multiplication operator that multiplies Polynomials to a constant when order is swapped.
+ *
+ */
+Polynomial& operator * (const int& multConstant, const Polynomial& multPolynomial)
+{
+	// Create an array containing the integer to construct a Polynomial.
+	ipointer constantCoefficient = new int[1];
+
+	// Set the array's one indexed variable to the constant.
+	constantCoefficient[0] = multConstant;
+
+	// Create a Polynomial of degree 0 that is just the integer using the array.
+	Polynomial* constant = new Polynomial(constantCoefficient, 0);
+
+	// Subtract the numbers as Polynomials.
+	return *constant* multPolynomial;
 }
