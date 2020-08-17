@@ -31,7 +31,7 @@ int main()
 	delete[] coef;
 
 	// Choose a random small degree and make an array.
-	int degree = randomValueOnInterval(1, 5);
+	int degree = randomValueOnInterval(3, 7);
 	coef = new int[degree + 1];
 
 	// Choose small random coefficient values.
