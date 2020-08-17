@@ -154,6 +154,27 @@ void Polynomial::setCoefficient(const int index, const int coefficient)
 }
 
 /*
+* This function evaluates the Polynomial given a value for the variable.
+*
+*/
+double Polynomial::evaluateAt(const double xValue) const
+{
+	// Define a double for the value.
+	double value = 0;
+
+	// Iterate through the array until all terms have been multiplied and added.
+	for (int i = 0; i <= degree; i++)
+	{
+		// Multiply by the xValue for this iteration and add the next coefficient so that each term will be multiplied by the
+		// xValue the appropriate number of times due to distributed multiplication. Start from the end.
+		value = (value * xValue) + this->coefficients[degree - i];
+	}
+
+	// Return the value of the Polynomial.
+	return value;
+}
+
+/*
 * This function returns a Polynomial as a string.
 *
 */
