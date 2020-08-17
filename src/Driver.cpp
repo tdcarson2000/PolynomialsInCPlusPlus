@@ -32,6 +32,9 @@ int main()
 	// Test toString and the constructor.
 	cout << polynomial.toString() + "\n";
 
+	// Test getDegree.
+	cout << to_string(polynomial.getDegree()) + "\n";
+
 	return 0;
 }
 
