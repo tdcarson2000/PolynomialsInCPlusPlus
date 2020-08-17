@@ -30,10 +30,16 @@ int main()
 	delete[] coef;
 
 	// Test toString and the constructor.
-	cout << polynomial.toString() + "\n";
+	cout << "As a string: " << polynomial.toString() + "\n";
 
 	// Test getDegree.
-	cout << to_string(polynomial.getDegree()) + "\n";
+	cout << "Degree: " << to_string(polynomial.getDegree()) + "\n";
+
+	// Test getCoefficientAt.
+	for (int change = 0; degree - change >= 0; change++)
+	{
+		cout << "Coefficient " + to_string(degree - change) + ": " << to_string(polynomial.getCoefficientAt(degree - change)) + "\n";
+	}
 
 	return 0;
 }
