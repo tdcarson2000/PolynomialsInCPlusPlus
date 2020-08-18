@@ -16,6 +16,9 @@ Microsoft Visual Studio or any other compatible C++ IDE.
 
 ## Usage
 
+#### UML Class Diagram
+![UML Diagram for Polynomial Class](https://github.com/tdcarson2000/PolynomialsInCPlusPlus/blob/master/docs/UML.jpg)
+
 #### Importing into your project
 ```c++
 import "Polynomial.h";
